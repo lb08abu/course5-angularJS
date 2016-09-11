@@ -10,10 +10,13 @@
     <title>Assignment 1</title>
   </head>
   <body>
-    <div class="container" ng-controller="LunchCheckController">
+    <div class="container text-center" ng-controller="LunchCheckController">
       <h1>Form Checker</h1>
 
       <div class="form-group">
+        <!-- empty strings and spaces DO NOT count towards the total amount
+        note that this also means the message "Please enter data first" shows
+        up if the user only types commas -->
         <input id="lunch-menu" type="text"
         placeholder="List some food items..."
         class="form-control" ng-model="food">
@@ -25,11 +28,10 @@
         </button>
       </div>
 
-      <div class="form-group message">
-        <span class="label"
-        ng-class="{'label-warning': warn,
-                   'label-danger': error,
-                   'label-success': !error && !warn}">
+      <div class="form-group message" ng-show="checked">
+        <span class="label" ng-class="{'label-warning': n_items <= 0,
+                                       'label-danger': n_items > 3,
+                                       'label-success': n_items <= 3}">
           {{message}}
         </span>
       </div>
