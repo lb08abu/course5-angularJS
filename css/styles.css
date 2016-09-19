@@ -1,0 +1,30 @@
+@import 'https://fonts.googleapis.com/css?family=PT+Sans';
+
+body {
+  font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+h4 {
+  color: #999;
+}
+
+.emptyMessage {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2em;
+}
+
+li {
+  margin-bottom: 7px;
+  font-size: 1.3em;
+}
+
+@media (min-width: 700px) {
+    .pull-right-md {
+        float: right;
+    }
+}

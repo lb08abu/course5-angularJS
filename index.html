@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="RepoApp">
   <head>
     <meta charset="utf-8">
-    <title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>lb08abu AngularJS Repo</title>
   </head>
   <body>
-    <h1>Coursera Angular JS Course</h1>
-    <a href="assignments/assignment1/index.html">Assignment 1</a>
-    <a href="assignments/assignment2/index.html">Assignment 2</a>
+    <div class="container">
+      <h1 class="text-center">AngularJS Repository</h1>
+      <h3 class="text-center">A repository homepage for the Coursera course <a href="https://www.coursera.org/learn/single-page-web-apps-with-angularjs/home/welcome">Single Page Web Applications with AngularJS</a></h3>
+      <h4 class="text-center"><em>By Lewis Belcher</em></h4>
+
+      <!-- implement a carousel like http://bootsnipp.com/snippets/featured/carousel-extended -->
+      <div class="" ng-controller="AssignmentContoller as assCtrl">
+        <div class="row" ng-repeat="ass in assCtrl.assignments">
+          <div class="col-xs-12 col-sm-8">
+            <h3><a ng-href="{{assCtrl.getAssignmentDir($index)}}" target="_blank">{{ass.title}}</a></h3>
+            <p>
+              {{ass.description}}
+            </p>
+          </div>
+          <div class="col-sm-4 hidden-xs">
+            <img ng-src="img/{{ass.dir}}-screenshot.png" alt="{{ass.name}} image" class="img-rounded" width="300"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
