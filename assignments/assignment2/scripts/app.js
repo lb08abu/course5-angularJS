@@ -41,13 +41,5 @@
       {quantity: 33, item: "Banners"}
     ];
     self.bought = [];
-
-    self.getToBuy = function() {
-      return self.toBuy;
-    }
-
-    self.getBought = function() {
-      return self.bought;
-    }
   }
 }());
