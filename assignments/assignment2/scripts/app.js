@@ -12,9 +12,7 @@
     self.bought = ShoppingListCheckOffService.bought;
 
     self.buyItem = function(index) {
-      var item = self.toBuy[index];
-      self.toBuy.splice(index, 1);
-      self.bought.push(item);
+      ShoppingListCheckOffService.moveItem(self.toBuy, self.bought, index);
     }
   }
 
@@ -25,9 +23,7 @@
     self.bought = ShoppingListCheckOffService.bought;
 
     self.unBuyItem = function(index) {
-      var item = self.bought[index];
-      self.bought.splice(index, 1);
-      self.toBuy.push(item);
+      ShoppingListCheckOffService.moveItem(self.bought, self.toBuy, index);
     }
   }
 
@@ -41,5 +37,12 @@
       {quantity: 33, item: "Banners"}
     ];
     self.bought = [];
+
+    self.moveItem = function(frm, to, index) {
+      var item = frm[index];
+      frm.splice(index, 1);
+      to.push(item);
+    }
+
   }
 }());
