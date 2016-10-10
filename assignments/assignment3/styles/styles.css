@@ -1,14 +1,32 @@
+@import 'https://fonts.googleapis.com/css?family=David+Libre:400,700';
+
+body {
+  font-family: 'David Libre', serif;
+  background: #d53369; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #d53369 , #cbad6d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #d53369 , #cbad6d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 h1 {
+  padding-bottom: 20px;
   margin-bottom: 30px;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.41);
 }
-input[type="text"] {
-  width: 200px;
-  float: left;
+
+thead th {
+  text-align: center;
 }
-.narrow-button {
-  float: left;
-  margin-left: 10px;
+
+table {
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
 }
+
+tbody th {
+  font-weight: lighter;
+}
+
 .loader {
   display: none;
   margin-left: 5px;

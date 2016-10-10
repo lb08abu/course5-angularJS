@@ -12,17 +12,17 @@
     var self = this;
     self.found = [];
     self.searchTerm = "";
-    self.error = false;
+    self.badQuery = "";
 
     self.getMatchedMenuItems = function() {
       var foundPromise = MenuSearchService.getMatchedMenuItems(self.searchTerm);
       foundPromise.then(
         function callbackSuccess(res) {
           self.found = res;
-          if (self.found.length) {
-            self.error = false;
+          if (self.found.length > 0) {
+            self.badQuery = "";
           } else {
-            self.error = true;
+            self.badQuery = self.searchTerm;
           }
         },
         function callbackFail(res) {
@@ -67,7 +67,7 @@
       scope: {
         found: '<',
         onRemove: '&',
-        error: '<'
+        badQuery: '<'
       }
     };
     return ddo;
