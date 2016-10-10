@@ -17,7 +17,8 @@
       </tbody>
     </table>
   </div>
-  <div ng-if="badQuery">
-    <h3 class="text-center">ERROR! No matches for your query '{{badQuery}}'.. :(</h3>
+  <div ng-if="error">
+    <h3 class="text-center">Nothing found.</h3>
+    <h3 class="text-center" ng-if="badQuery">No matches for your query '{{badQuery}}'.. :(</h3>
   </div>
 </div>

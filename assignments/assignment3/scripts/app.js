@@ -14,16 +14,23 @@
     self.found = [];
     self.searchTerm = "";
     self.badQuery = "";
+    self.error = false;
 
     self.getMatchedMenuItems = function() {
+      if (!self.searchTerm) {
+        self.error = true;
+        return;
+      }
       var foundPromise = MenuSearchService.getMatchedMenuItems(self.searchTerm);
       foundPromise.then(
         function callbackSuccess(res) {
           self.found = res;
           if (self.found.length > 0) {
             self.badQuery = "";
+            self.error = false;
           } else {
             self.badQuery = self.searchTerm;
+            self.error = true;
           }
         },
         function callbackFail(res) {
@@ -68,7 +75,8 @@
       scope: {
         found: '<',
         onRemove: '&',
-        badQuery: '<'
+        badQuery: '<',
+        error: '<'
       }
     };
     return ddo;
