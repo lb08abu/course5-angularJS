@@ -6,7 +6,6 @@
   .service("MenuSearchService", MenuSearchService)
   .directive("foundItems", FoundItemsDirective)
   .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
-  // .constant('ApiBasePath', "//davids-restaurant.herokuapp.com");
 
   NarrowItDownController.$inject = ["MenuSearchService"];
   function NarrowItDownController(MenuSearchService) {
