@@ -24,16 +24,16 @@
        description: "In this assignment we use a custom directive to display a list of items from a menu that contain a given search term. The custom directive has an isolate scope and we pass in values and functions via various data binding methods. We use promises to fetch a JSON file from a RESTFUL API and the search term is then used to filter for entries that contain the given term. If no such entries are found or if the user does not enter a term then an error message is displayed and all the list HTML is hidden using ng-if."},
     ];
 
-    for (var i in self.assignments) {
-      self.assignments[i].assignmentPath = getAssignmentPath(i);
-      self.assignments[i].imagePath = getImagePath(i);
-    }
+    // for (var i in self.assignments) {
+    //   self.assignments[i].assignmentPath = getAssignmentPath(i);
+    //   self.assignments[i].imagePath = getImagePath(i);
+    // }
 
-    function getAssignmentPath(index) {
+    self.getAssignmentPath = function (index) {
       return assDir + self.assignments[index].dir + "/index.html";
     }
 
-    function getImagePath(index) {
+    self.getImagePath = function (index) {
       return "img/" + self.assignments[index].dir + "-screenshot.png"
     }
 

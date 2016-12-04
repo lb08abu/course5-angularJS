@@ -17,8 +17,20 @@
         http://bootsnipp.com/snippets/featured/carousel-extended or
         http://bootsnipp.com/snippets/featured/colourful-tabbed-slider-carousel
       -->
-      <div class="" ng-controller="AssignmentContoller as ctrl">
-        <assignments assignments=ctrl.assignments></assignments>
+      <div class="" ng-controller="AssignmentContoller as assCtrl">
+        <div class="row" ng-repeat="ass in assCtrl.assignments">
+          <div class="col-xs-12 col-sm-8">
+            <h3><a ng-href="{{assCtrl.getAssignmentPath($index)}}" target="_blank">{{ass.title}}</a></h3>
+            <p>
+              {{ass.description}}
+            </p>
+          </div>
+          <div class="col-sm-4 hidden-xs">
+            <a ng-href="{{assCtrl.getAssignmentPath($index)}}" target="_blank">
+              <img ng-src="img/{{ass.dir}}-screenshot.png" alt="{{ass.name}} image" class="img-rounded" width="300"/>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -26,3 +38,5 @@
     <script src="scripts/app.js"></script>
   </body>
 </html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
